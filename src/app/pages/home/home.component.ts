@@ -22,8 +22,8 @@ export class HomeComponent implements OnInit {
   getData(): void {
     this.cs.getEntitymgr().subscribe((res:any)=>{
       const data = JSON.parse(res);
-      this.genders = data?.ManikJSon[0]?.JSon0
-      this.bloodGroup = data?.ManikJSon[0]?.JSon1
+      this.genders = data?.ManikJSon[0]?.JSon0.map(i=>i.DataText);
+      this.bloodGroup = data?.ManikJSon[0]?.JSon1.map(i=>i.DataText);
     })
   }
 

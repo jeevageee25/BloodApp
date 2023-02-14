@@ -11,6 +11,10 @@ import { ToastModule } from 'primeng-lts/toast';
 import { MessageService } from 'primeng-lts/api';
 import { DropdownModule } from 'primeng-lts/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {AutoCompleteModule} from 'primeng-lts/autocomplete'; 
+import {MatAutocompleteModule} from '@angular/material/autocomplete';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
@@ -25,7 +29,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HttpClientModule,
     ToastModule,
     MessagesModule,
-    DropdownModule
+    DropdownModule,
+    AutoCompleteModule,
+    MatAutocompleteModule,
+    MatFormFieldModule,
+    MatInputModule,
   ],
   providers: [MessageService, {
     provide: HTTP_INTERCEPTORS,
