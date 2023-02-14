@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
       setHeaders: {
         'Content-Type' : 'application/json; charset=utf-8',
         'Accept'       : 'application/json',
-        'Authorization': `${localStorage.getItem('dfarm_token')}`
+        'Authorization': `Bearer  ${JSON.parse(`${localStorage.getItem('token')}`)}`
       },
     });
 

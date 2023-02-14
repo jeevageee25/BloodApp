@@ -16,10 +16,9 @@ export class AppComponent implements OnInit {
   }
 
   getJWTToken(): void {
-    this.cs.generateJWTToken().subscribe(res => {
-      console.log('TOKEN::', res);
-      localStorage.setItem('token',JSON.stringify(res))
-
+    this.cs.generateJWTToken().subscribe((res: any) => {
+      const token = res?.ManikJSon[0]?.JSon0;
+      localStorage.setItem('token', JSON.stringify(token));
     })
   }
 }

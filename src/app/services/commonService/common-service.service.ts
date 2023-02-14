@@ -11,4 +11,8 @@ export class CommonService {
   generateJWTToken(){
     return this.http.get('http://entityserver.manikworks.com/apptoken');
   }
+
+  getEntitymgr(payload:any){
+    return this.http.post('http://entityserver.manikworks.com/entitymgr', payload);
+  } 
 }
