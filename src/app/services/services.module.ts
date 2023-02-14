@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { JwtOperationService } from './jwtService/jwt-operation-service.service';
 import { CommonService } from './commonService/common-service.service';
 import { JwtHelperService, JwtModule, JWT_OPTIONS } from '@auth0/angular-jwt';
+import { SnackbarService } from './snackbar.service';
 
 export function jwtOptionsFactory(tokenService) {
   return {
@@ -23,6 +24,6 @@ export function jwtOptionsFactory(tokenService) {
       }
     })
   ],
-  providers: [JwtOperationService, CommonService, JwtHelperService]
+  providers: [JwtOperationService, CommonService, JwtHelperService, SnackbarService]
 })
 export class ServicesModule { }

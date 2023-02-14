@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MessageService } from 'primeng-lts/api';
 import { CommonService } from 'src/app/services/commonService/common-service.service';
+import { SnackbarService } from 'src/app/services/snackbar.service';
 
 @Component({
   selector: 'app-home',
@@ -13,10 +14,9 @@ export class HomeComponent implements OnInit {
   bloodGroup = [];
   bloodGroup_b = [];
 
-  constructor(private cs: CommonService, public messageService: MessageService) { }
+  constructor(private cs: CommonService, public messageService: MessageService, private snackbar: SnackbarService) { }
 
   ngOnInit(): void {
-    this.messageService.add({ severity: 'success', summary: 'Success', detail: 'Message Content' });
     this.getData();
   }
 
@@ -42,11 +42,14 @@ export class HomeComponent implements OnInit {
 
   getData(): void {
     this.cs.getEntitymgr().subscribe((res: any) => {
+      this.snackbar.errorSnack('Data Fetched Successfully');
       const data = JSON.parse(res);
       this.genders = data?.ManikJSon[0]?.JSon0.map(i => i.DataText);
       this.genders_b = [...this.genders];
       this.bloodGroup = data?.ManikJSon[0]?.JSon1.map(i => i.DataText);
       this.bloodGroup_b = [...this.bloodGroup];
+    }, e => {
+      this.snackbar.errorSnack('Something went wrong. Please try later.');
     })
   }
 
