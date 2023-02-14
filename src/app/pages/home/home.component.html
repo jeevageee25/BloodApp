@@ -1,7 +1,7 @@
 <form>
     <mat-form-field appearance="outline" style='width:30%;'>
         <mat-label>Gender</mat-label>
-        <input matInput type='text' placeholder="Gender" [matAutocomplete]="auto">
+        <input matInput type='text' placeholder="Gender" [matAutocomplete]="auto"  (input)='onGenderChange($event)'>
         <mat-autocomplete #auto="matAutocomplete">
             <mat-option *ngFor="let option of genders" [value]="option">
                 {{option}}
@@ -13,7 +13,7 @@
     &nbsp;
     <mat-form-field appearance="outline" style='width:30%;'>
         <mat-label>Blood Group</mat-label>
-        <input matInput type='text' placeholder="Blood Group" [matAutocomplete]="auto1">
+        <input matInput type='text' placeholder="Blood Group"  (input)='onBloodChange($event)' [matAutocomplete]="auto1">
         <mat-autocomplete #auto1="matAutocomplete">
             <mat-option *ngFor="let option of bloodGroup" [value]="option">
                 {{option}}
